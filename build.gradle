@@ -15,16 +15,6 @@ buildscript {
         ext.'SONATYPE.userName' = System.getProperty('SONATYPE_USER') ?: System.getenv('SONATYPE_USER')
         ext.'SONATYPE.password' = System.getProperty('SONATYPE_PASSWORD') ?: System.getenv('SONATYPE_PASSWORD')
     }
-
-//    repositories {
-//        if (CERN_VM) {
-//            maven { url 'http://artifactory.cern.ch/ds-jcenter' }
-//            maven { url 'http://artifactory.cern.ch/development' }
-//        } else {
-//            jcenter()
-//            maven { url 'https://plugins.gradle.org/m2/' }
-//        }
-//    }
 }
 
 plugins {
@@ -82,7 +72,15 @@ dependencies {
 
 sourceSets {
     main {
-        resources { srcDirs 'src/main/java' }
+        resources {
+            srcDirs 'src/main/java'
+        }
+
+        java {
+            if (!JavaVersion.current().isJava11Compatible()) {
+                exclude '**/module-info.java'
+            }
+        }
     }
 }
 
@@ -92,7 +90,7 @@ test {
         exceptionFormat "full"
     }
 
-//    failFast = true
+    failFast = true
 
     if (JavaVersion.current().isJava11Compatible()) {
         jvmArgs '--add-exports=javafx.graphics/com.sun.javafx.application=org.testfx',
