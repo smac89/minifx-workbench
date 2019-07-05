@@ -60,11 +60,14 @@ dependencies {
     testImplementation group: 'org.testfx', name: 'testfx-core', version: '4.0.15-alpha'
     testImplementation group: 'org.testfx', name: 'testfx-junit', version: '4.0.15-alpha'
     testImplementation (group: 'org.springframework', name: 'spring-test', version: springVersion)
+
+    // See https://github.com/mockito/mockito/issues/1483
+    // Also https://github.com/mockito/mockito/issues/1419
+    // And https://github.com/mockito/mockito/issues/1577
     testImplementation (group: 'org.mockito', name: 'mockito-core', version: '2.24.0') {
         exclude group: 'net.bytebuddy'
     }
     testImplementation ("net.bytebuddy:byte-buddy:1.9.13")
-//    testImplementation group: 'net.bytebuddy', name: 'byte-buddy', version: '1.8.22'
 }
 
 sourceSets {
