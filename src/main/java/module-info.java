@@ -17,7 +17,6 @@ module minifx.core {
     exports org.minifx.fxcommons.util;
 
     opens org.minifx.workbench.conf to spring.core,spring.beans;
-//    opens org.minifx.workbench.spring to spring.core;
     opens org.minifx.fxcommons.fxml.commons.spring to spring.core;
 
     requires javafx.fxml;

@@ -5,12 +5,4 @@ if (JavaVersion.current().isJava11Compatible()) {
         // version = "12.0.1"
         modules = ['javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web']
     }
-
-    jar {
-        manifest {
-            attributes('Automatic-Module-Name' : "$moduleName")
-            // http://tutorials.jenkov.com/java/modules.html#multi-java-version-module-jar-files
-            attributes('Multi-Release' : true)
-        }
-    }
 }

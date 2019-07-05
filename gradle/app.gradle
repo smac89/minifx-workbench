@@ -2,6 +2,14 @@ if (JavaVersion.current().isJava11Compatible()) {
     application {
         mainClassName "$moduleName/org.minifx.workbench.examples.simpledemo.DemoMain"
     }
+
+    jar {
+        manifest {
+            attributes('Automatic-Module-Name' : "$moduleName")
+            // http://tutorials.jenkov.com/java/modules.html#multi-java-version-module-jar-files
+            attributes('Multi-Release' : true)
+        }
+    }
 } else {
     application {
         mainClassName 'org.minifx.workbench.examples.simpledemo.DemoMain'
