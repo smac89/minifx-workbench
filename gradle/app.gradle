@@ -1,0 +1,9 @@
+if (JavaVersion.current().isJava11Compatible()) {
+    application {
+        mainClassName "$moduleName/org.minifx.workbench.examples.simpledemo.DemoMain"
+    }
+} else {
+    application {
+        mainClassName 'org.minifx.workbench.examples.simpledemo.DemoMain'
+    }
+}

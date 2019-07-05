@@ -6,7 +6,7 @@ package org.minifx.workbench.spring;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.minifx.workbench.domain.PerspectivePos.LEFT;
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
 
 import org.junit.Before;
 import org.junit.Rule;

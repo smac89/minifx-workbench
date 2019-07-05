@@ -24,5 +24,4 @@ public class NoPanelConfiguredExampleTest extends AbstractSpringApplicationTest 
         Node node = single(lookup(idRef(ID_MAIN_PANEL)));
         assertThat(node).isNotNull();
     }
-
 }

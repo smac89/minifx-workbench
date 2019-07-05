@@ -1,1 +1,26 @@
+pluginManagement {
+//    ext {
+//        CERN_VM = System.getProperty('CERN_TECHNET_VM') ?: System.getenv('CERN_TECHNET_VM') ?: project.hasProperty('CERN_TECHNET_VM')
+//        DEPLOYMENT = System.getProperty('deployment')
+//        VCS_TAG = System.getProperty('TRAVIS_TAG') ?: System.getenv('TRAVIS_TAG')
+//        it.'BINTRAY.userName' = System.getProperty('BINTRAY_USER') ?: System.getenv('BINTRAY_USER')
+//        it.'BINTRAY.apiToken' = System.getProperty('BINTRAY_API_TOKEN') ?: System.getenv('BINTRAY_API_TOKEN')
+//    }
+//    repositories {
+//        if ((System.getProperty('CERN_TECHNET_VM') ?: System.getenv('CERN_TECHNET_VM'))) {
+//            maven { url 'http://artifactory.cern.ch/ds-jcenter' }
+//            maven { url 'http://artifactory.cern.ch/development' }
+//        } else {
+//            jcenter()
+//            maven { url 'https://plugins.gradle.org/m2/' }
+//        }
+//    }
+//
+//    resolutionStrategy {
+//        eachPlugin {
+//            println requested.id.id
+//        }
+//    }
+}
+
 rootProject.name = 'minifx-workbench'

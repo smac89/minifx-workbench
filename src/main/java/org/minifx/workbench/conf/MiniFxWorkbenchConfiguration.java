@@ -4,13 +4,14 @@
 
 package org.minifx.workbench.conf;
 
+import static java.util.stream.Collectors.toList;
+import static org.minifx.fxcommons.MiniFxSceneBuilder.miniFxSceneBuilder;
+
+import java.util.List;
 import javafx.scene.Scene;
 import org.minifx.fxcommons.MiniFxSceneBuilder;
 import org.minifx.workbench.components.MainPane;
-import org.minifx.workbench.domain.definition.FooterDefinition;
-import org.minifx.workbench.domain.definition.PerspectiveDefinition;
 import org.minifx.workbench.nodes.FxNodeFactory;
-import org.minifx.workbench.providers.PerspectiveProvider;
 import org.minifx.workbench.spring.BeanInformationExtractor;
 import org.minifx.workbench.spring.BeanInformationExtractorImpl;
 import org.minifx.workbench.spring.BeanInformationRepository;
@@ -18,21 +19,10 @@ import org.minifx.workbench.spring.ElementsDefinitionConstructor;
 import org.minifx.workbench.spring.WorkbenchElementsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
-
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Stream.concat;
-import static org.minifx.fxcommons.MiniFxSceneBuilder.miniFxSceneBuilder;
 
 @Configuration
 @Import({FactoryMethodsCollectorConfiguration.class, FxmlNodeServiceConfiguration.class,

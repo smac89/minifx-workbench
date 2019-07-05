@@ -1,0 +1,47 @@
+repositories {
+    if (CERN_VM) {
+        maven { url 'http://artifactory.cern.ch/ds-jcenter' }
+        maven { url 'http://artifactory.cern.ch/development' }
+    } else {
+        /* For minifx components: */
+        maven { url "https://dl.bintray.com/minifx/minifx-repo" }
+        /* For the fontawesome icons, to be compatible with java 8 */
+        maven { url "https://dl.bintray.com/jerady/maven" }
+        jcenter()
+        mavenCentral()
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == 'de.jensd') {
+                if (details.requested.name.endsWith('-fontawesome')) {
+                    if (JavaVersion.current().isJava11Compatible()) {
+                        details.useVersion('4.7.0-11')
+                    } else {
+                        details.useVersion('4.7.0-5')
+                    }
+                }
+
+                if (details.requested.name.endsWith('-commons')) {
+                    if (JavaVersion.current().isJava11Compatible()) {
+                        details.useVersion('11.0')
+                    } else {
+                        details.useVersion('8.12')
+                    }
+                }
+            }
+        }
+
+
+//        dependencySubstitution {
+//            if (JavaVersion.current().isJava11Compatible()) {
+//                substitute module('de.jensd:fontawesomefx-fontawesome') with module('de.jensd:fontawesomefx-fontawesome:4.7.0-11')
+////                module('de.jensd:fontawesomefx-commons:11.0')
+//            } else {
+//                substitute module('de.jensd:fontawesomefx-fontawesome') with module('de.jensd:fontawesomefx-fontawesome:4.7.0-5')
+//            }
+//        }
+    }
+}
