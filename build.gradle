@@ -84,17 +84,19 @@ sourceSets {
     }
 }
 
-afterEvaluate {
-    task springTest(type: Test, description: test.description, group: test.group) {
-        testLogging {
-            events "passed", "skipped", "failed"
-            exceptionFormat "full"
+if (JavaVersion.current().isJava9Compatible()) {
+    afterEvaluate {
+        task springTest(type: Test, description: test.description, group: test.group) {
+            testLogging {
+                events "passed", "skipped", "failed"
+                exceptionFormat "full"
+            }
+            failFast = true
         }
-        failFast = true
-    }
 
-    test.enabled = false
-    check.dependsOn springTest
+        test.enabled = false
+        check.dependsOn springTest
+    }
 }
 
 javadoc {
