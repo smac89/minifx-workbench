@@ -5,14 +5,12 @@
 package org.minifx.workbench.conf;
 
 import java.util.Arrays;
-
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.util.WaitForAsyncUtils;
-
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 /**
  * @author kfuchsbe
@@ -35,5 +33,4 @@ public abstract class AbstractSpringApplicationTest extends ApplicationTest {
         stage.show();
         WaitForAsyncUtils.waitForFxEvents();
     }
-
 }

@@ -9,9 +9,8 @@ import static org.minifx.workbench.conf.MiniFxWorkbenchConfiguration.ID_MAIN_PAN
 import static org.minifx.workbench.util.Tests.idRef;
 import static org.minifx.workbench.util.Tests.single;
 
-import org.junit.Test;
-
 import javafx.scene.Node;
+import org.junit.Test;
 
 public class NoPanelConfiguredExampleTest extends AbstractSpringApplicationTest {
 

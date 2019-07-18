@@ -8,6 +8,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.minifx.workbench.util.Tests.idRef;
 import static org.minifx.workbench.util.Tests.single;
 
+import javafx.scene.Node;
+import javafx.scene.control.ToggleButton;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -16,9 +18,6 @@ import org.minifx.workbench.conf.fullyconfigured.P1CenterA;
 import org.minifx.workbench.conf.fullyconfigured.Perspective1;
 import org.minifx.workbench.conf.fullyconfigured.Perspective2;
 import org.testfx.util.WaitForAsyncUtils;
-
-import javafx.scene.Node;
-import javafx.scene.control.ToggleButton;
 
 @Ignore("re-check with more time testfx")
 public class FullyConfiguredExampleTest extends AbstractSpringApplicationTest {

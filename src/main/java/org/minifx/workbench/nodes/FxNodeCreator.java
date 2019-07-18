@@ -8,6 +8,6 @@ import javafx.scene.Node;
 
 public interface FxNodeCreator {
 
-    public Node fxNodeFrom(Object object);
+    Node fxNodeFrom(Object object);
 
 }
