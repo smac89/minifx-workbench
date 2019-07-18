@@ -84,68 +84,12 @@ sourceSets {
     }
 }
 
-task springTesting(type: Test, group: test.group) {
+task test(type: Test, description: test.description, group: test.group, overwrite: true) {
     testLogging {
         events "passed", "skipped", "failed"
         exceptionFormat "full"
     }
-
-//    doFirst {
-//        if (JavaVersion.current().isJava11Compatible()) {
-//            jvmArgs '--illegal-access=debug'
-//            jvmArgs '--add-exports=javafx.graphics/com.sun.javafx.application=org.testfx',
-////                    "--add-exports=$moduleName/org.minifx.fxcommons=ALL-UNNAMED",
-////                    "--add-exports=$moduleName/org.minifx.workbench=ALL-UNNAMED",
-//                    "--add-reads=$moduleName=org.testfx,spring.core,spring.context,spring.beans",
-//                    "--add-opens=$moduleName/org.minifx.workbench.examples.doc=org.testfx,spring.core,spring.context,spring.beans",
-//                    "--add-opens=$moduleName/org.minifx.workbench.examples.simpledemo=org.testfx,spring.core,spring.context,spring.beans",
-//                    "--add-opens=$moduleName/org.minifx.workbench.spring=org.testfx,spring.core,spring.context,spring.beans",
-//                    "--add-opens=$moduleName/org.minifx.workbench.util=org.testfx,spring.core,spring.context,spring.beans"
-////                "--add-opens=$moduleName/org.minifx.workbench.nodes=spring.beans"
-//
-////            println classpath.asPath
-//        }
-//    }
-}
-
-test {
-    testLogging {
-        events "passed", "skipped", "failed"
-        exceptionFormat "full"
-    }
-
-    doFirst {
-        if (JavaVersion.current().isJava11Compatible()) {
-            jvmArgs '--illegal-access=debug'
-            allJvmArgs = [
-                    "--enable-preview",
-            ]
-            jvmArgs '--add-exports=javafx.graphics/com.sun.javafx.application=org.testfx',
-//                    "--add-exports=$moduleName/org.minifx.fxcommons=ALL-UNNAMED",
-//                    "--add-exports=$moduleName/org.minifx.workbench=ALL-UNNAMED",
-                    "--add-reads=$moduleName=org.testfx,spring.core,spring.context,spring.beans",
-                    "--add-opens=$moduleName/org.minifx.workbench.examples.doc=org.testfx,spring.core,spring.context,spring.beans",
-                    "--add-opens=$moduleName/org.minifx.workbench.examples.simpledemo=org.testfx,spring.core,spring.context,spring.beans",
-                    "--add-opens=$moduleName/org.minifx.workbench.spring=org.testfx,spring.core,spring.context,spring.beans",
-                    "--add-opens=$moduleName/org.minifx.workbench.util=org.testfx,spring.core,spring.context,spring.beans"
-//                "--add-opens=$moduleName/org.minifx.workbench.nodes=spring.beans"
-
-//            println classpath.asPath
-        }
-    }
-
-    doLast {
-//        allJvmArgs =  ['--patch-module',
-//                       "$moduleName=$compileJava.outputs.files.asPath:$compileTestJava.outputs.files.asPath",
-//                       *allJvmArgs]
-        println allJvmArgs
-        println compileJava.outputs.files.asPath
-        println compileTestJava.outputs.files.asPath
-    }
-
-//    failFast = true
-
-
+    failFast = true
 }
 
 javadoc {
